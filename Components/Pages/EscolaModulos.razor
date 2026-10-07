@@ -1,0 +1,8 @@
+@page "/instituicoes/escola-girassol/alunos"
+@page "/instituicoes/escola-girassol/avaliacao-nutricional"
+@page "/instituicoes/escola-girassol/dietas-especiais"
+@page "/instituicoes/escola-girassol/agenda"
+@page "/instituicoes/escola-girassol/solicitacoes"
+@inject NavigationManager Nav
+<LayoutInstituicao InstituicaoId="1" Nome="Escola Girassol" Tipo="ESCOLA" Descricao="Instituição de Educação Infantil" Icone="🏫" RotaBase="/instituicoes/escola-girassol"><DemoUi Eyebrow="@Info.eye" Title="@Info.title" Subtitle="@Info.sub" PanelTitle="@Info.panel" Total="@Info.total" Ativos="@Info.active" Mes="@Info.month" Pendencias="@Info.pending" /></LayoutInstituicao>
+@code{private (string eye,string title,string sub,string panel,int total,int active,int month,int pending) Info{get{var p=Nav.ToBaseRelativePath(Nav.Uri);if(p.EndsWith("alunos"))return("ALUNOS","Alunos","Gerencie os alunos vinculados à instituição.","Alunos cadastrados",86,82,4,2);if(p.EndsWith("avaliacao-nutricional"))return("AVALIAÇÃO NUTRICIONAL","Avaliação Nutricional","Acompanhe avaliações e evolução nutricional dos alunos.","Avaliações recentes",64,61,12,3);if(p.EndsWith("dietas-especiais"))return("DIETAS ESPECIAIS","Dietas Especiais","Gerencie restrições e necessidades alimentares individuais.","Dietas especiais ativas",3,3,1,0);if(p.EndsWith("agenda"))return("ORGANIZAÇÃO","Agenda","Acompanhe compromissos, visitas e capacitações.","Próximos compromissos",9,7,6,2);return("COMUNICAÇÃO","Solicitações","Acompanhe solicitações enviadas pela instituição.","Solicitações recentes",6,4,2,2);}}}

@@ -1,0 +1,6 @@
+@page "/Account/Login"
+@inject NavigationManager NavigationManager
+@inject IConfiguration Configuration
+<PageTitle>Entrar | NutriEscolar Plus</PageTitle>
+<div class="login"><section><span>🍎 NUTRIÇÃO + EDUCAÇÃO</span><h1>Gestão nutricional escolar de forma simples e profissional.</h1><p>Organize instituições, cardápios, avaliações, visitas, documentos e muito mais.</p><small>ZHARA Softwares • Idealizado e desenvolvido por Celso Felipe Roos Hofstatter</small></section><main><div class="brand">🌿 <b>NutriEscolar <i>Plus</i></b></div><h2>Bem-vindo</h2><p>Acesse sua conta para continuar.</p>@if(!string.IsNullOrEmpty(Erro)){<div class="erro">@Erro</div>}<label>E-mail</label><input @bind="Email" type="email" placeholder="seu@email.com"/><label>Senha</label><input @bind="Senha" type="password" placeholder="••••••••"/><button @onclick="Entrar">Entrar no sistema</button></main></div>
+@code{private string Email="";private string Senha="";private string Erro="";private void Entrar(){var senhaDemo=Configuration["DEMO_PASSWORD"];if(Email.Equals("nutricelsohofstatter@gmail.com",StringComparison.OrdinalIgnoreCase)&&!string.IsNullOrEmpty(senhaDemo)&&Senha==senhaDemo)NavigationManager.NavigateTo("/",true);else Erro="E-mail ou senha inválidos.";}}

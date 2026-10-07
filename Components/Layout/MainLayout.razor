@@ -1,0 +1,25 @@
+@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+
+@if (EhPaginaDeConta || EhModoApresentacao)
+{
+    @Body
+}
+else
+{
+    <div class="app-shell">
+        <header class="topbar">
+            <a href="/" class="brand">
+                <div class="brand-icon">🌿</div>
+                <div class="brand-text"><strong>NutriEscolar <span>Plus</span></strong><small>Gestão Nutricional Escolar</small></div>
+            </a>
+            <div class="user-area"><div class="avatar">CH</div><div><strong>Nutricionista</strong><span>Administrador</span></div></div>
+        </header>
+        <main class="main-content">@Body</main>
+    </div>
+}
+
+@code {
+    private bool EhPaginaDeConta => NavigationManager.ToBaseRelativePath(NavigationManager.Uri).StartsWith("Account/", StringComparison.OrdinalIgnoreCase);
+    private bool EhModoApresentacao => NavigationManager.ToBaseRelativePath(NavigationManager.Uri).StartsWith("portfolio-comercial/apresentacao", StringComparison.OrdinalIgnoreCase);
+}

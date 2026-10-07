@@ -1,0 +1,36 @@
+@using Microsoft.AspNetCore.Components
+<div class="inst-page">
+    <section class="inst-head">
+        <a href="/" class="back">← Minhas instituições</a>
+        <div class="inst-id"><div class="inst-icon">@Icone</div><div><span>@Tipo</span><h1>@Nome</h1><p>@Descricao</p></div></div>
+    </section>
+    <div class="inst-grid">
+        <aside class="side">
+            <div class="menu-title">MENU PRINCIPAL</div>
+            <a href="@RotaBase">🏠 <b>Visão Geral</b></a>
+            @if (EhEscola)
+            {
+                <a href="@($"{RotaBase}/cardapios")">🍽️ <b>Cardápios</b></a>
+                <a href="@($"{RotaBase}/alunos")">👥 <b>Alunos</b></a>
+                <a href="@($"{RotaBase}/avaliacao-nutricional")">📊 <b>Avaliação Nutricional</b></a>
+                <a href="@($"{RotaBase}/dietas-especiais")">🥗 <b>Dietas Especiais</b></a>
+                <a href="@($"{RotaBase}/agenda")">📅 <b>Agenda</b></a>
+                <a href="@($"{RotaBase}/solicitacoes")">💬 <b>Solicitações</b></a>
+                <div class="sep"></div><a href="/portal/escola-girassol">👁 <b>Visualizar como instituição</b></a>
+            }
+            else
+            {
+                <a href="@($"{RotaBase}/alunos")">👥 <b>Alunos</b></a>
+                <a href="@($"{RotaBase}/grupos")">🫂 <b>Grupos</b></a>
+                <a href="@($"{RotaBase}/avaliacao-nutricional")">📊 <b>Avaliação Nutricional</b></a>
+                <a href="@($"{RotaBase}/agenda")">📅 <b>Agenda</b></a>
+                <a href="@($"{RotaBase}/relatorios")">📄 <b>Relatórios</b></a>
+            }
+        </aside>
+        <section class="content">@ChildContent</section>
+    </div>
+</div>
+@code{
+[Parameter] public int InstituicaoId{get;set;} [Parameter] public string Nome{get;set;}=""; [Parameter] public string Tipo{get;set;}=""; [Parameter] public string Descricao{get;set;}=""; [Parameter] public string Icone{get;set;}="🏫"; [Parameter] public string RotaBase{get;set;}=""; [Parameter] public RenderFragment? ChildContent{get;set;} [Parameter] public EventCallback OnEditarInstituicao{get;set;}
+private bool EhEscola=>InstituicaoId==1;
+}

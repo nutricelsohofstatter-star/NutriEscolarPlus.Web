@@ -1,0 +1,9 @@
+@page "/instituicoes/esperanca-azul"
+@page "/instituicoes/esperanca-azul/alunos"
+@page "/instituicoes/esperanca-azul/grupos"
+@page "/instituicoes/esperanca-azul/avaliacao-nutricional"
+@page "/instituicoes/esperanca-azul/agenda"
+@page "/instituicoes/esperanca-azul/relatorios"
+@inject NavigationManager Nav
+<LayoutInstituicao InstituicaoId="2" Nome="Esperança Azul" Tipo="ATENDIMENTO EM GRUPOS" Descricao="Atendimento Nutricional em Grupos" Icone="👥" RotaBase="/instituicoes/esperanca-azul"><DemoUi Eyebrow="ATENDIMENTO EM GRUPOS" Title="@Titulo" Subtitle="Acompanhe as informações e atividades da Esperança Azul." PanelTitle="Registros recentes" Total="42" Ativos="39" Mes="8" Pendencias="3" /></LayoutInstituicao>
+@code{private string Titulo{get{var p=Nav.ToBaseRelativePath(Nav.Uri);if(p.EndsWith("alunos"))return "Alunos";if(p.EndsWith("grupos"))return "Grupos";if(p.EndsWith("avaliacao-nutricional"))return "Avaliação Nutricional";if(p.EndsWith("agenda"))return "Agenda";if(p.EndsWith("relatorios"))return "Relatórios";return "Painel da instituição";}}}
