@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: 'Inter', Arial, sans-serif;
+    background: #F5F8F7;
+    color: #24312E;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+button {
+    cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #24312E;
+}
+
+input,
+textarea,
+select {
+    color: #24312E;
+}
+
+    input::placeholder,
+    textarea::placeholder {
+        color: #9AA6A2;
+    }
+
+.page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+.sidebar {
+    background-image: linear-gradient( 180deg, rgb(31, 111, 95) 0%, rgb(25, 91, 78) 70% );
+}
+
+.top-row {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #E6ECEA;
+    justify-content: flex-end;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+    .top-row ::deep a,
+    .top-row ::deep .btn-link {
+        white-space: nowrap;
+        margin-left: 1.5rem;
+        text-decoration: none;
+    }
+
+        .top-row ::deep a:hover,
+        .top-row ::deep .btn-link:hover {
+            text-decoration: underline;
+        }
+
+        .top-row ::deep a:first-child {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+.content {
+    padding-top: 1.1rem;
+}
+
+.valid.modified:not([type="checkbox"]) {
+    outline: 1px solid #26B050;
+}
+
+.invalid {
+    outline: 1px solid #D9534F;
+}
+
+.validation-message {
+    color: #D9534F;
+}
+
+.blazor-error-boundary {
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTEyIDJhMTAgMTAgMCAxIDAgMCAyMCAxMCAxMCAwIDAgMCAwLTIwem0xIDE1aC0ydi0yaDJ2MnptMC00aC0ydi02aDJ2NnoiLz48L3N2Zz4=) no-repeat 1rem/1.8rem, #B32121;
+    padding: 1rem 1rem 1rem 3.7rem;
+    color: white;
+}
+
+    .blazor-error-boundary::after {
+        content: "Ocorreu um erro.";
+    }
+
+.darker-border-checkbox.form-check-input {
+    border-color: #929292;
+}
+
+#error-ui {
+    background: #FFF3CD;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }
+
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F1F5F3;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #C6D4CF;
+    border-radius: 10px;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #AEBFB9;
+    }
+
+
+/* SELEÇÃO DE TEXTO */
+
+::selection {
+    background: #DDEFE9;
+    color: #1F6F5F;
+}
+
+
+/* FOCO DE ACESSIBILIDADE */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid rgba(79, 143, 163, 0.25);
+    outline-offset: 2px;
+}
+
+
+/* RESPONSIVIDADE PADRÃO */
+
+@media (max-width: 640px) {
+
+    .top-row {
+        justify-content: space-between;
+    }
+
+        .top-row ::deep a,
+        .top-row ::deep .btn-link {
+            margin-left: 0;
+        }
+}
+
+@media (min-width: 641px) {
+
+    .page {
+        flex-direction: row;
+    }
+
+    .sidebar {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .top-row {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+        .top-row.auth ::deep a:first-child {
+            flex: 1;
+            text-align: right;
+            width: 0;
+        }
+
+    .top-row,
+    article {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
